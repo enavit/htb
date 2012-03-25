@@ -21,6 +21,12 @@ class UserController {
 
     def save() {
         def userInstance = new User(params)
+		
+		if (userInstance.password != params.repeatedPassword) {
+			flash.message = message(code: 'default.passwords.dont.match.message')
+			render(view: "create", model: [userInstance: userInstance])
+			return
+		}
         if (!userInstance.save(flush: true)) {
             render(view: "create", model: [userInstance: userInstance])
             return

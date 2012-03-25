@@ -5,8 +5,6 @@ import org.springframework.dao.DataIntegrityViolationException
 class CustomerController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
-	
-	def configurationService
 
     def index() {
         redirect(action: "list", params: params)
@@ -23,14 +21,6 @@ class CustomerController {
 
     def save() {
         def customerInstance = new Customer(params)
-		customerInstance.role = configurationService.roleList.get(1)
-		System.out.println("before compare");
-		if (customerInstance.password != params.repeatedPassword) {
-			System.out.println("passwords don't match");
-			flash.message = "${message(code: 'default.passwords.dont.match.message')}"
-			render(view: "create", model: [customerInstance: customerInstance])
-			return
-		}
         if (!customerInstance.save(flush: true)) {
             render(view: "create", model: [customerInstance: customerInstance])
             return

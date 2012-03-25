@@ -5,11 +5,11 @@ import com.sanitu.floweronline.bank.CreditCard
 import com.sanitu.floweronline.order.Order
 import com.sanitu.floweronline.user.User
 
-class Customer extends User {
+class Customer {
 	
-	String firstName
+	String name
 	
-	String lastName
+	String email
 	
 	CreditCard creditCard
 	
@@ -17,11 +17,13 @@ class Customer extends User {
 	
 	static embedded = ['creditCard', 'address']
 	
+	static mappedBy = [orders: 'sender']
+	
 	static hasMany = [orders: Order]
 
     static constraints = {
-		firstName(nullable: false, blank: false)
-		lastName(nullable: false, blank: false)
+		name(nullable: false, blank: false)
+		email(nullable: true, blank: true, email: true, unique: true)
 		creditCard(nullable: true)
 		address(nullable: true)
     }

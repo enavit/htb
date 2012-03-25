@@ -59,6 +59,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${userInstance?.customer}">
+				<li class="fieldcontain">
+					<span id="customer-label" class="property-label"><g:message code="user.customer.label" default="Customer" /></span>
+					
+						<span class="property-value" aria-labelledby="customer-label"><g:link controller="customer" action="show" id="${userInstance?.customer?.id}">${userInstance?.customer?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form>
 				<fieldset class="buttons">

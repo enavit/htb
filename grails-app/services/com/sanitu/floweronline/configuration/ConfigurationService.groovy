@@ -15,7 +15,10 @@ class ConfigurationService {
     }
 	
 	def getOrderStatusList() {
-		["open", "progress", "close"]
+		String open = applicationContext.getMessage("order.status.open", null, Locale.defaultLocale)
+		String progress = applicationContext.getMessage("order.status.progress", null, Locale.defaultLocale)
+		String close = applicationContext.getMessage("order.status.close", null, Locale.defaultLocale)
+		[open, progress, close]
 	}
 	
 	def getCategoryList() {

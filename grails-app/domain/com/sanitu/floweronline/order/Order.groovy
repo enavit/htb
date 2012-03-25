@@ -1,7 +1,6 @@
 package com.sanitu.floweronline.order
 
-import com.sanitu.floweronline.address.InvoiceAddress;
-import com.sanitu.floweronline.address.RecipientAddress;
+import com.sanitu.floweronline.customer.Customer
 import com.sanitu.floweronline.item.Item
 
 class Order {
@@ -14,9 +13,11 @@ class Order {
 	
 	double amount
 	
-	InvoiceAddress invoiceAddress
+	Customer recipient
 	
-	RecipientAddress recipientAddress
+	Customer sender
+	
+	boolean anonymous
 	
 	static hasMany = [items: Item]
 	
@@ -25,6 +26,8 @@ class Order {
 		orderDate()
 		shippingDate(min: new Date())
 		amount(nullable: false, min: 0D)
+		recipient(nullable: false)
+		sender(nullable: false)
     }
 	
 	static mapping = {

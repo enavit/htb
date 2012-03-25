@@ -24,17 +24,13 @@
 				<thead>
 					<tr>
 					
-						<g:sortableColumn property="username" title="${message(code: 'customer.username.label', default: 'Username')}" />
-					
-						<g:sortableColumn property="password" title="${message(code: 'customer.password.label', default: 'Password')}" />
+						<g:sortableColumn property="name" title="${message(code: 'customer.name.label', default: 'Name')}" />
 					
 						<g:sortableColumn property="email" title="${message(code: 'customer.email.label', default: 'Email')}" />
 					
-						<g:sortableColumn property="role" title="${message(code: 'customer.role.label', default: 'Role')}" />
+						<th><g:message code="customer.creditCard.label" default="Credit Card" /></th>
 					
-						<g:sortableColumn property="firstName" title="${message(code: 'customer.firstName.label', default: 'First Name')}" />
-					
-						<g:sortableColumn property="lastName" title="${message(code: 'customer.lastName.label', default: 'Last Name')}" />
+						<th><g:message code="customer.address.label" default="Address" /></th>
 					
 					</tr>
 				</thead>
@@ -42,17 +38,13 @@
 				<g:each in="${customerInstanceList}" status="i" var="customerInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "username")}</g:link></td>
-					
-						<td>${fieldValue(bean: customerInstance, field: "password")}</td>
+						<td><g:link action="show" id="${customerInstance.id}">${fieldValue(bean: customerInstance, field: "name")}</g:link></td>
 					
 						<td>${fieldValue(bean: customerInstance, field: "email")}</td>
 					
-						<td>${fieldValue(bean: customerInstance, field: "role")}</td>
+						<td>${fieldValue(bean: customerInstance, field: "creditCard")}</td>
 					
-						<td>${fieldValue(bean: customerInstance, field: "firstName")}</td>
-					
-						<td>${fieldValue(bean: customerInstance, field: "lastName")}</td>
+						<td>${fieldValue(bean: customerInstance, field: "address")}</td>
 					
 					</tr>
 				</g:each>

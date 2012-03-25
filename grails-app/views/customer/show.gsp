@@ -23,20 +23,11 @@
 			</g:if>
 			<ol class="property-list customer">
 			
-				<g:if test="${customerInstance?.username}">
+				<g:if test="${customerInstance?.name}">
 				<li class="fieldcontain">
-					<span id="username-label" class="property-label"><g:message code="customer.username.label" default="Username" /></span>
+					<span id="name-label" class="property-label"><g:message code="customer.name.label" default="Name" /></span>
 					
-						<span class="property-value" aria-labelledby="username-label"><g:fieldValue bean="${customerInstance}" field="username"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${customerInstance?.password}">
-				<li class="fieldcontain">
-					<span id="password-label" class="property-label"><g:message code="customer.password.label" default="Password" /></span>
-					
-						<span class="property-value" aria-labelledby="password-label"><g:fieldValue bean="${customerInstance}" field="password"/></span>
+						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${customerInstance}" field="name"/></span>
 					
 				</li>
 				</g:if>
@@ -50,29 +41,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${customerInstance?.role}">
+				<g:if test="${customerInstance?.creditCard}">
 				<li class="fieldcontain">
-					<span id="role-label" class="property-label"><g:message code="customer.role.label" default="Role" /></span>
+					<span id="creditCard-label" class="property-label"><g:message code="customer.creditCard.label" default="Credit Card" /></span>
 					
-						<span class="property-value" aria-labelledby="role-label"><g:fieldValue bean="${customerInstance}" field="role"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${customerInstance?.firstName}">
-				<li class="fieldcontain">
-					<span id="firstName-label" class="property-label"><g:message code="customer.firstName.label" default="First Name" /></span>
-					
-						<span class="property-value" aria-labelledby="firstName-label"><g:fieldValue bean="${customerInstance}" field="firstName"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${customerInstance?.lastName}">
-				<li class="fieldcontain">
-					<span id="lastName-label" class="property-label"><g:message code="customer.lastName.label" default="Last Name" /></span>
-					
-						<span class="property-value" aria-labelledby="lastName-label"><g:fieldValue bean="${customerInstance}" field="lastName"/></span>
+						<span class="property-value" aria-labelledby="creditCard-label"><g:fieldValue bean="${customerInstance}" field="creditCard"/></span>
 					
 				</li>
 				</g:if>
@@ -82,15 +55,6 @@
 					<span id="address-label" class="property-label"><g:message code="customer.address.label" default="Address" /></span>
 					
 						<span class="property-value" aria-labelledby="address-label"><g:fieldValue bean="${customerInstance}" field="address"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${customerInstance?.creditCard}">
-				<li class="fieldcontain">
-					<span id="creditCard-label" class="property-label"><g:message code="customer.creditCard.label" default="Credit Card" /></span>
-					
-						<span class="property-value" aria-labelledby="creditCard-label"><g:fieldValue bean="${customerInstance}" field="creditCard"/></span>
 					
 				</li>
 				</g:if>
