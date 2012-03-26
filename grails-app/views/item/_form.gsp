@@ -41,7 +41,9 @@
 		<g:message code="item.imagePath.label" default="Image Path" />
 		
 	</label>
-	<g:textField name="imagePath" value="${itemInstance?.imagePath}"/>
+	<%-- <g:textField name="imagePath" value="${itemInstance?.imagePath}"/>  --%>
+	<input type="file" name="imagePath"/>
+	
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: itemInstance, field: 'quantity', 'error')} required">

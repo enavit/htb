@@ -9,6 +9,8 @@ class ConfigurationService {
 	static transactional = false
 	
 	ApplicationContext applicationContext = (ApplicationContext) ServletContextHolder.getServletContext().getAttribute(GrailsApplicationAttributes.APPLICATION_CONTEXT);
+	
+	static final String IMAGE_TYPE = ".png"
 
     def getRoleList() {
 		["admin", "customer"]

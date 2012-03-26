@@ -7,7 +7,7 @@ class ItemController {
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
 	
 	def configurationService
-
+	
     def index() {
         redirect(action: "list", params: params)
     }
@@ -23,6 +23,27 @@ class ItemController {
 
     def save() {
         def itemInstance = new Item(params)
+		
+		def selectedImage = request.getFile('imagePath')
+		
+		if (!selectedImage?.empty && selectedImage.size <= 1024*500) { // ensures file size less than 500Kb
+			/* here we need to get the absolute path to upload the image into the server
+			 * without the absolute path the image will be uploaded into the root directory, where the server is installed (ex.: /var)
+			 * and we haven't access to this directory
+			 */
+			File imagesFolder = grailsApplication.parentContext.getResource("images").file
+			def absolutePath = imagesFolder.absolutePath
+			def imageCategoryDirPath = absolutePath + File.separator + itemInstance.category + File.separator
+			def imageCategoryDir = new File(imageCategoryDirPath)
+			if (!imageCategoryDir || !imageCategoryDir?.isDirectory()) {
+				imageCategoryDir = new File(imageCategoryDirPath).mkdir()
+			}
+			itemInstance.imagePath = imageCategoryDirPath + itemInstance.name + configurationService.IMAGE_TYPE
+			// upload photo into server with the absolute path
+			selectedImage.transferTo(new File(itemInstance.imagePath))
+			// response.sendError(200, 'Done')
+		}
+		
         if (!itemInstance.save(flush: true)) {
             render(view: "create", model: [itemInstance: itemInstance])
             return
