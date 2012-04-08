@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/main.css" />
+<script type="text/javascript" src="lib/kinetic-v3.8.5.min.js"></script>
+<script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="htb_app.js"></script>
+</head>
+<body>
+  <div id="container" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+  <div id="toolBox" onmouseout="$('#toolBox > div').removeClass('hightlighted').show('slow');">
+    <div class="toolEntry" id="rose" onclick="setTool('rose', 'selected')" onmouseover="setTool('rose', 'hightlighted');">
+      <img src="img/rose.png" width="50" height="50 " />
+    </div>
+
+    <div class="toolEntry" id="gerbera" onclick="setTool('gerbera', 'selected')" onmouseover="setTool('gerbera', 'hightlighted');">
+      <img src="img/gerbera.png" width="50" height="50 " />
+    </div>
+
+    <div class="toolEntry" id="gerbera_bombero" onclick="setTool('gerbera_bombero', 'selected')" onmouseover="setTool('gerbera_bombero', 'hightlighted');">
+      <img src="img/gerbera_bombero.png" width="50" height="50 " />
+    </div>
+
+    <div title="Click to select." class="toolEntry" id="borja" onclick="setTool('borja', 'selected')" onmouseover="setTool('borja', 'hightlighted');">
+      <img src="img/borja.png" width="50" height="50 " />
+    </div>
+  </div>
+</body>
+</html>
